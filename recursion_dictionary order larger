@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class recursion_dictionary_order_larger {
+
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		String str=scn.nextLine();
+		
+		lexicolarger(str,"",str,false);
+
+	}
+	public static void lexicolarger(String str,String result,String orig,boolean larger)
+	{
+		if(str.length()==0)
+		{
+			if(!result.equals(orig))
+			{
+				System.out.println(result);
+				
+			}
+			return;
+		}
+		
+		
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char cc=str.charAt(i);
+			if(larger)
+			{
+			   String ros=str.substring(0,i)+str.substring(i+1);
+			   lexicolarger(ros,result+cc,orig,larger);
+			}
+			else
+			{
+				if(cc>=str.charAt(0))
+				{
+					String ros=str.substring(0,i)+str.substring(i+1);
+					lexicolarger(ros,result+cc,orig,cc>str.charAt(0));
+				}
+				else
+				{
+					//no calls here as cc<str.charAt(0);
+				}
+				
+			}
+		}
+	}
+
+}
