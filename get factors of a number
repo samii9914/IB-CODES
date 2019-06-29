@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class getfactors {
+
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		int n=scn.nextInt();
+		
+		ArrayList<Integer> list=new ArrayList<>();
+		for(int i=1;i*i<n;i++)
+		{
+			if(n%i==0)
+			{
+				if(n/i==i)
+				{
+					list.add(i);
+				}
+				else
+				{
+					list.add(i);
+					list.add(n/i);
+				}
+			}
+		}
+		
+		for(int i=0;i<list.size();i++)
+		{
+			System.out.println(list.get(i));
+		}
+
+	}
+
+}

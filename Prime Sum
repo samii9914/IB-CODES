@@ -1,0 +1,32 @@
+public class Solution {
+    public ArrayList<Integer> primesum(int A) {
+        int []primes=new int[A];
+        for(int i=0;i<primes.length;i++)
+        {
+            primes[i]=1;
+        }
+        primes[0]=0;
+        primes[1]=0;
+        for(int i=2;i*i<A;i++)
+        {
+            for(int j=2*i;j<A;j=j+i)
+            {
+                primes[j]=0;
+            }
+        }
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=2;i<primes.length;i++)
+        {
+            for(int j=i;j<primes.length;j++)
+            {
+                if(i+j==A&&primes[i]==1&&primes[j]==1)
+                {
+                    ans.add(i);
+                    ans.add(j);
+                    return ans;
+                }
+            }
+        }
+        return ans;
+    }
+}

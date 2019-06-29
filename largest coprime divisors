@@ -1,0 +1,45 @@
+public class Solution {
+    public int cpFact(int A, int B) {
+        ArrayList<Integer> factors=new ArrayList<>();
+        factors=getfactors(A);
+        Collections.sort(factors);
+        int size=factors.size();
+        for(int i=size-1;i>=0;i--)
+        {
+            if(gcd(factors.get(i),B)==1)
+            {
+                return factors.get(i);
+            }
+        }
+        return -1;
+        
+    }
+    public static int gcd(int a,int b)
+    {
+        if(b==0)
+        {
+            return a;
+        }
+        int ans=gcd(b,a%b);
+        return ans;
+    }
+    public static ArrayList<Integer> getfactors(int n)
+    {
+        ArrayList<Integer> List=new ArrayList<>();
+        for(int i=1;i*i<n;i++)
+        {
+            if(n%i==0)
+            {
+                if(n/i==i)
+                List.add(i);
+                 else
+            {
+                List.add(i);
+                List.add(n/i);
+            }
+            }
+           
+        }
+        return List;
+    }
+}

@@ -1,0 +1,27 @@
+public class Solution {
+    public int reverse(int A) {
+        
+        int sign=1;
+        
+        if(A<0)
+        {
+            sign=-1;
+            A*=-1;
+        }
+        int temp=A;
+        int ans=0;
+        
+        while(temp>0)
+        {
+            int digit=temp%10;
+            if (ans>(Integer.MAX_VALUE / 10)||ans==(Integer.MAX_VALUE) && digit > (Integer.MAX_VALUE % 10)) {
+            return 0;
+        }
+            ans=10*ans+(digit);
+            temp=temp/10;
+        }
+        ans=ans*sign;
+       return ans;
+       
+    }
+}

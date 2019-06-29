@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String args[]) {
+        int ans=recursivefunc("3452",0);
+        System.out.println(ans);
+    }
+    public static int recursivefunc(String str,int ans)
+    {
+        if(str.length()==0)
+        {
+            return ans;
+        }
+
+        String res=str.substring(1);
+        int ch=(int)str.charAt(0)-48;
+        int a=recursivefunc(res,10*ans+ch);
+        return a;
+    }
+}

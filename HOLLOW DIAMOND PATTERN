@@ -1,0 +1,49 @@
+public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		int n=scn.nextInt();
+		
+		int row=1;
+		int nsp=-1;
+		int val=n+1;
+		int i=1;
+		while(row<=n)
+		{
+			if(row==1||row==n)
+			{
+				for(i=1;i<=n;i++)
+				{
+					System.out.print("*    ");
+				}
+			}
+			else
+			{
+				for(i=1;i<=val/2;i++)
+				{
+					System.out.print("*    ");
+				}
+				for(int cst=1;cst<=nsp;cst++)
+				{
+					System.out.print("     ");
+				}
+				for(i=i;i<=val;i++)
+				{
+					System.out.print("*    ");
+				}
+			}
+			if(row<=n/2)
+			{
+				val=val-2;
+				nsp=nsp+2;
+			}
+			else
+			{
+				val=val+2;
+				nsp=nsp-2;;
+			}
+			System.out.println();
+			row++;
+			
+			
+		}
+
+	}
