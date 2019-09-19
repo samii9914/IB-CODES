@@ -1,0 +1,24 @@
+public class Solution {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        
+        Collections.sort(A);
+        int i=0;
+            while(i<A.size()&&A.get(i)<=0)
+            {
+                i++;
+            }
+            int k=1;
+           for(i=i;i<A.size();i++)
+           {
+               if(A.get(i)!=k)
+               {
+                   return k;
+               }
+               k++;
+           }
+            
+           return k; 
+        
+       
+    }
+}
