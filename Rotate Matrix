@@ -1,0 +1,17 @@
+public class Solution {
+    public void rotate(ArrayList<ArrayList<Integer>> a) {
+        
+        for(int row=0;row<a.size()/2;row++)
+        {
+            for(int col=row;col<a.size()-row-1;col++)
+            {
+                int temp=a.get(row).get(col);
+                a.get(row).set(col,a.get(a.size()-col-1).get(row));
+                a.get(a.size()-col-1).set(row,a.get(a.size()-row-1).get(a.size()-col-1));
+                a.get(a.size()-row-1).set(a.size()-col-1,a.get(col).get(a.size()-row-1));
+                a.get(col).set(a.size()-row-1,temp);
+            }
+        }
+       
+    }
+}
