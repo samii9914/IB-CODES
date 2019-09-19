@@ -1,0 +1,20 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST
+    public int repeatedNumber(final List<Integer> a) {
+        int i=0;
+        ArrayList<Integer> list=new ArrayList<>(a);
+        while(i<list.size())
+        {
+            if(list.get(java.lang.Math.abs(list.get(i)))>=0)
+            {
+                list.set(java.lang.Math.abs(list.get(i)),-list.get(java.lang.Math.abs(list.get(i))));
+            }
+            else
+            {
+                return java.lang.Math.abs(list.get(i));
+            }
+            i++;
+        }
+        return -1;
+    }
+}
