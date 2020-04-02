@@ -1,0 +1,47 @@
+public class Solution {
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
+        // we will try to find an outof place index in the array and find the next index in the remaining array which should 
+        //come at that point.and then right rotate the array.
+        
+        int outofindex=-1;
+        for(int index=0;index<A.size();index++)
+        {
+            if(outofindex>=0)
+            {
+               if((A.get(index)<0 && A.get(outofindex)>=0) || (A.get(index)>=0 && A.get(outofindex)<0))
+               {
+                   rightrotate(A,outofindex,index);
+                   
+                   if(index-outofindex>2)
+                   {
+                       outofindex+=2;
+                   }
+                   else
+                   {
+                       outofindex=-1;
+                   }
+                   
+                   
+                   
+               }
+            }
+            if(outofindex==-1) 
+            {
+                if((A.get(index)>=0 && (index%2==0))|| (A.get(index)<0 && (index%2!=0)))
+                {
+                    outofindex=index;
+                }
+            }
+        }
+        return A;
+    }
+    public void rightrotate(ArrayList<Integer> A,int start,int end)
+    {
+        int temp=A.get(end);
+        for(int i=end;i>start;i--)
+        {
+            A.set(i,A.get(i-1));
+        }
+        A.set(start,temp);
+    }
+}
